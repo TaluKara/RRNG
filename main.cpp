@@ -1,44 +1,36 @@
 #include <iostream>
-#include <random>
+#include <cstdlib>
+#include <ctime>
 
-using namespace std;
-
-// Function to generate a random number between 10 and 20
-int generateInitialRandomNumber() {
-    // Create a random device
-    random_device rd;
-    // Initialize a Mersenne Twister pseudo-random number generator
-    mt19937 gen(rd());
-    // Uniform distribution between 10 and 20
-    uniform_int_distribution<> distr(10, 20);
-
-    // Generate and return a random number
-    return distr(gen);
+long long calculateSeed(int x) {
+    return x*x*x + 5*x*x + 9*x - 2;
 }
 
-// Function to generate a random number using a custom seed
-int generateRandomNumberWithCustomSeed(unsigned int seed) {
-    // Initialize a Mersenne Twister pseudo-random number generator with the custom seed
-    mt19937 gen(seed);
-    // Uniform distribution between 10 and 20
-    uniform_int_distribution<> distr(10, 20);
-
-    // Generate and return a random number
-    return distr(gen);
+long long generateRandomNumber(int seed, int y) {
+    srand(seed);
+    long long number = 0;
+    for(int i = 0; i < y; ++i) {
+        number = number * 10 + (rand() % 10);
+    }
+    return number;
 }
 
 int main() {
-    // Generate an initial random number x between 10 and 20
-    int x = generateInitialRandomNumber();
-    cout << "Initial random number (x): " << x << endl;
+    srand(time(0));
 
-    // Loop x times
-    for (int i = 0; i < x; ++i) {
-        // Generate a new seed for each iteration
-        unsigned int newSeed = generateInitialRandomNumber();
-        // Use the new seed to generate a random number
-        int randomNumber = generateRandomNumberWithCustomSeed(newSeed);
-        cout << "Random number in iteration " << i+1 << ": " << randomNumber << endl;
+    int x = 10 + rand() % 11;
+    std::cout << "Fonksiyonların tekrar sayısı: " << x << std::endl;
+
+    int y;
+    std::cout << "Kaç basamaklı bir sayı oluşturmak istiyorsunuz: ";
+    std::cin >> y;
+
+    long long seed = calculateSeed(x);
+
+    for(int i = 0; i < x; ++i) {
+        long long randomNumber = generateRandomNumber(seed, y);
+        std::cout << i+1 << ". Üretilen sayı: " << randomNumber << std::endl;
+        seed = randomNumber;
     }
 
     return 0;
