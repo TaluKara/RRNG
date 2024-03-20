@@ -4,7 +4,7 @@
 #include <string>
 
 long long calculateSeed(int x) {
-    return x*x*x + 5*x*x + 9*x - 2;
+    return x*x*x + 5*x*x + 9*x - 2; //CUSTOMIZE THIS FUNCTION FOR MAXIMUM PRIVACY
 }
 
 std::string generateRandomNumber(int seed, int y) {
