@@ -1,6 +1,6 @@
-# RRNG (Real Random Number Generator)
+# RRNG (Random Random Number Generator)
 
-RRNG, or Real Random Number Generator, is a C++ program designed to generate random numbers with varying degrees of complexity. It leverages a unique seed generation strategy, making the randomness customizable according to the user's preference. This program can be particularly useful for applications requiring random number generation with specific characteristics or for educational purposes to demonstrate how randomness can be manipulated and controlled.
+RRNG, or Random Random Number Generator, is a C++ program designed to generate random numbers with varying degrees of complexity. It leverages a unique seed generation strategy, making the randomness customizable according to the user's preference. This program can be particularly useful for applications requiring random number generation with specific characteristics or for educational purposes to demonstrate how randomness can be manipulated and controlled.
 
 ## Features
 
